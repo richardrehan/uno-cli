@@ -20,8 +20,9 @@ public class Main {
 
         GameController gameController = new GameController(inputReader, outputWriter, settings);
 
+        GameModeMenu gameModeMenu = new GameModeMenu(inputReader, outputWriter, gameController);
         SettingsMenu settingsMenu = new SettingsMenu(inputReader, outputWriter, settings);
-        MainMenu mainMenu = new MainMenu(inputReader, outputWriter, gameController, settingsMenu);
-        mainMenu.start();
+        MainMenu mainMenu = new MainMenu(inputReader, outputWriter, gameController, settingsMenu, gameModeMenu);
+        mainMenu.display();
     }
 }

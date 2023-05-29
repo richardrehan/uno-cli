@@ -18,6 +18,7 @@ public class FileSettingsRepository implements SettingsRepository {
         } catch (FileNotFoundException e) {
             // Wenn die Datei nicht gefunden wird, werden Standardwerte zurückgegeben
             properties = createDefaultSettings();
+            saveSettings(properties);
         } catch(Exception e) {
             // Handle exception
         } finally {
@@ -46,11 +47,6 @@ public class FileSettingsRepository implements SettingsRepository {
         Properties defaultProperties = new Properties();
         defaultProperties.setProperty("numHumanPlayers", "1");
         defaultProperties.setProperty("numBotPlayers", "3");
-
-        try (OutputStream outputStream = new FileOutputStream(SETTINGS_FILE)) {
-            defaultProperties.store(outputStream, "Default settings");
-        }
-        saveSettings(defaultProperties);
 
         return defaultProperties;
     }

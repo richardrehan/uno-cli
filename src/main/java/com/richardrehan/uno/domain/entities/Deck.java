@@ -4,9 +4,7 @@ import com.richardrehan.uno.domain.entities.card.Card;
 import com.richardrehan.uno.domain.entities.card.NumberCard;
 import com.richardrehan.uno.domain.entities.card.action.*;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Stack;
 
 public class Deck {
@@ -25,21 +23,7 @@ public class Deck {
                 // Skip black cards, since they don't have a specific color
                 continue;
             }
-            /*
-            for (Card.Value value : Card.Value.values()) {
-                if (value == Card.Value.WILD || value == Card.Value.WILD_DRAW_FOUR) {
-                    // Skip wild cards, since they don't have a specific color
-                    continue;
-                }
-                //cards.push(new Card(color, value));
 
-                if (value != Card.Value.ZERO) {
-                    // Add two copies of each action card to the deck, except for "0"
-                    //cards.push(new Card(color, value));
-                    cards.push
-                }
-            }
-             */
             for (int i = 0; i <= 9; i++) {
                 this.cards.add(new NumberCard(color, i));
                 // Zahlenkarten von 1 bis 9 kommen doppelt vor, außer die 0.
@@ -60,8 +44,6 @@ public class Deck {
         for (int i = 0; i < 4; i++) {
             cards.push(new WildCard());
             cards.push(new WildDrawFourCard());
-            //cards.push(new Card(Card.Color.WILD, Card.Value.WILD));
-            //cards.push(new Card(Card.Color.WILD, Card.Value.WILD_DRAW_FOUR));
         }
 
         this.shuffle();

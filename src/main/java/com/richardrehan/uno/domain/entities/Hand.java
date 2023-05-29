@@ -30,4 +30,9 @@ public class Hand {
     public void removeCard(Card card) {
         cards.remove(card);
     }
+
+    @Override
+    public String toString() {
+        return this.cards.toString();
+    }
 }

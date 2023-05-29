@@ -13,17 +13,17 @@ public class Settings {
         this.properties = settingsRepository.loadSettings();
     }
 
-    public String getSetting(String key) {
+    private String getSetting(String key) {
         return properties.getProperty(key);
     }
 
-    public void setSetting(String key, String value) throws IOException {
+    private void setSetting(String key, String value) throws IOException {
         properties.setProperty(key, value);
         settingsRepository.saveSettings(properties);
     }
 
     public int getNumHumanPlayers() {
-        return Integer.parseInt(getSetting("numHumanPlayers"));
+        return Integer.parseInt(getSetting(SettingsKey.NUM_HUMAN_PLAYERS.getKey()));
     }
 
     public void setNumHumanPlayers(int numHumanPlayers) {
@@ -35,7 +35,7 @@ public class Settings {
     }
 
     public int getNumBotPlayers() {
-        return Integer.parseInt(getSetting("numBotPlayers"));
+        return Integer.parseInt(getSetting(SettingsKey.NUM_BOT_PLAYERS.getKey()));
     }
 
     public void setNumBotPlayers(int numBotPlayers) {
@@ -43,6 +43,21 @@ public class Settings {
             setSetting("numBotPlayers", String.valueOf(numBotPlayers));
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public enum SettingsKey {
+        NUM_HUMAN_PLAYERS("numHumanPlayers"),
+        NUM_BOT_PLAYERS("numBotPlayers");
+
+        private final String key;
+
+        SettingsKey(String key) {
+            this.key = key;
+        }
+
+        public String getKey() {
+            return key;
         }
     }
 }

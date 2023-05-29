@@ -5,6 +5,7 @@ import com.richardrehan.uno.domain.InputReader;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Player {
     private final String name;
@@ -29,10 +30,6 @@ public class Player {
         return hand;
     }
 
-    public boolean isBot() {
-        return isBot;
-    }
-
     public void addCardsToHand(List<Card> cards) {
         for (Card card : cards) {
             hand.addCard(card);
@@ -51,9 +48,31 @@ public class Player {
             Card chosenCard;
 
             if(this.isBot) {
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 chosenCard = playableCards.get(0);
             } else {
                 chosenCard = inputReader.chooseCard(playableCards);
+            }
+
+            // Choose a color when a wild card is played
+            if(chosenCard.getColor().equals(Card.Color.WILD)) {
+                Card.Color color;
+
+                if(this.isBot)
+                {
+                    color = Card.Color.values()[new Random().nextInt(Card.Color.values().length - 1)];
+                }
+                else
+                {
+                    color =  inputReader.chooseColor();
+                }
+
+                chosenCard.setColor(color);
             }
 
             this.removeCardFromHand(chosenCard);
