@@ -5,17 +5,19 @@ import com.richardrehan.uno.domain.entities.Game;
 import com.richardrehan.uno.domain.InputReader;
 import com.richardrehan.uno.domain.OutputWriter;
 
-public class ReverseCard extends Card {
+public class ReverseCard extends Card
+{
 
-    public ReverseCard(Color color) {
+    public ReverseCard(Color color)
+    {
         super(color, Value.REVERSE);
     }
 
     @Override
-    public void executeAction(Game game, InputReader inputReader, OutputWriter outputWriter) {
+    public void executeAction(Game game, InputReader inputReader, OutputWriter outputWriter)
+    {
         super.executeAction(game, inputReader, outputWriter);
 
-        outputWriter.write("Reversing order!");
-        game.getPlayerManager().reverseOrder();
+        game.reverseOrder();
     }
 }

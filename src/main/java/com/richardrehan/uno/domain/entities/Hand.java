@@ -5,34 +5,47 @@ import com.richardrehan.uno.domain.entities.card.Card;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Hand {
+public class Hand
+{
     private List<Card> cards;
 
-    public Hand() {
+    public Hand()
+    {
         this.cards = new ArrayList<>();
     }
 
 
-    public List<Card> getCards() {
+    public List<Card> getCards()
+    {
         return cards;
     }
 
-    public void addCards(List<Card> cards) {
-        for (Card card : cards) {
+    public void addCards(List<Card> cards)
+    {
+        for (Card card : cards)
+        {
             this.addCard(card);
         }
     }
 
-    public void addCard(Card card) {
+    public void addCard(Card card)
+    {
         cards.add(card);
     }
 
-    public void removeCard(Card card) {
+    public void removeCard(Card card)
+    {
         cards.remove(card);
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return this.cards.toString();
+    }
+
+    public int getSize()
+    {
+        return cards.size();
     }
 }

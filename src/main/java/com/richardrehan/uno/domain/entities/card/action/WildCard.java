@@ -7,14 +7,17 @@ import com.richardrehan.uno.domain.OutputWriter;
 
 import java.util.Random;
 
-public class WildCard extends Card {
+public class WildCard extends Card
+{
 
-    public WildCard() {
+    public WildCard()
+    {
         super(Color.WILD, Value.WILD);
     }
 
     @Override
-    public void executeAction(Game game, InputReader inputReader, OutputWriter outputWriter) {
+    public void executeAction(Game game, InputReader inputReader, OutputWriter outputWriter)
+    {
         super.executeAction(game, inputReader, outputWriter);
     }
 }

@@ -3,12 +3,14 @@ package com.richardrehan.uno.application;
 import com.richardrehan.uno.domain.InputReader;
 import com.richardrehan.uno.domain.OutputWriter;
 
-public class MainMenu extends Menu {
+public class MainMenu extends Menu
+{
     private final GameController gameController;
     private final SettingsMenu settingsMenu;
     private final GameModeMenu gameModeMenu;
 
-    public MainMenu(InputReader inputReader, OutputWriter outputWriter, GameController gameController, SettingsMenu settingsMenu, GameModeMenu gameModeMenu) {
+    public MainMenu(InputReader inputReader, OutputWriter outputWriter, GameController gameController, SettingsMenu settingsMenu, GameModeMenu gameModeMenu)
+    {
         super(inputReader, outputWriter, "Main Menu");
         this.gameController = gameController;
         this.settingsMenu = settingsMenu;
@@ -19,15 +21,18 @@ public class MainMenu extends Menu {
         addMenuOption("Help", this::helpMenu);
     }
 
-    private void startGame() {
+    private void startGame()
+    {
         gameModeMenu.display();
     }
 
-    private void settingsMenu() {
+    private void settingsMenu()
+    {
         settingsMenu.display();
     }
 
-    private void helpMenu() {
+    private void helpMenu()
+    {
         outputWriter.write("\nUNO");
         outputWriter.write("Types of cards");
         outputWriter.write("* Number cards: 0 to 9");
