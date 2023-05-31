@@ -30,12 +30,6 @@ public class Deck
         Collections.shuffle(cards);
     }
 
-
-    public Card peekTopCard()
-    {
-        return cards.peek();
-    }
-
     public Card drawCard()
     {
         return cards.pop();

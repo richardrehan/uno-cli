@@ -35,7 +35,7 @@ public class Settings
     {
         try
         {
-            setSetting("numHumanPlayers", String.valueOf(numHumanPlayers));
+            setSetting(SettingsKey.NUM_HUMAN_PLAYERS.getKey(), String.valueOf(numHumanPlayers));
         } catch (IOException e)
         {
             throw new RuntimeException(e);
@@ -51,7 +51,7 @@ public class Settings
     {
         try
         {
-            setSetting("numBotPlayers", String.valueOf(numBotPlayers));
+            setSetting(SettingsKey.NUM_BOT_PLAYERS.getKey(), String.valueOf(numBotPlayers));
         } catch (IOException e)
         {
             throw new RuntimeException(e);
