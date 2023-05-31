@@ -2,18 +2,27 @@ package com.richardrehan.uno.domain.entities;
 
 import com.richardrehan.uno.domain.InputReader;
 import com.richardrehan.uno.domain.entities.card.Card;
+import com.richardrehan.uno.domain.strategy.FastThinkerStrategy;
+import com.richardrehan.uno.domain.strategy.NormalStrategy;
+import com.richardrehan.uno.domain.strategy.PlayStrategy;
 
 import java.util.List;
 import java.util.Random;
 
 public class BotPlayer extends Player
 {
-    private static final int MINIMUM_THINKING_TIME = 1000;
-    private static final int MAX_THINKING_TIME = 5000;
+    private PlayStrategy playStrategy;
 
     public BotPlayer(String name, InputReader inputReader)
     {
         super(name, inputReader);
+        this.playStrategy = new NormalStrategy();
+    }
+
+    public BotPlayer(String name, InputReader inputReader, PlayStrategy playStrategy)
+    {
+        super(name, inputReader);
+        this.playStrategy = playStrategy;
     }
 
     @Override
@@ -38,7 +47,7 @@ public class BotPlayer extends Player
     {
         simulateThinkingTime();
 
-        Card chosenCard = playableCards.get(0);
+        Card chosenCard = playStrategy.chooseCard(playableCards);
 
         // Choose a color when a wild card is played
         if (chosenCard.getColor().equals(Card.Color.WILD))
@@ -60,14 +69,20 @@ public class BotPlayer extends Player
     {
         try
         {
-            // Random thinking time
-            int thinkingTime = (int) (Math.random() * (MAX_THINKING_TIME - MINIMUM_THINKING_TIME + 1)) + MINIMUM_THINKING_TIME;
-
+            int thinkingTime = playStrategy.thinkingTime();
             Thread.sleep(thinkingTime);
         } catch (InterruptedException e)
         {
             // Handle exception if needed
         }
+    }
+
+    public PlayStrategy getPlayStrategy() {
+        return this.playStrategy;
+    }
+
+    public void setPlayStrategy(PlayStrategy playStrategy) {
+        this.playStrategy = playStrategy;
     }
 
 }

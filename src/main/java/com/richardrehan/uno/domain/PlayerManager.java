@@ -26,12 +26,12 @@ public class PlayerManager
 
         for (int i = 1; i <= numHumanPlayers; i++)
         {
-            this.addPlayer(playerFactory.createPlayer(Player.PlayerType.HUMAN, inputReader, "Human " + i));
+            this.addPlayer(playerFactory.createPlayer(Player.PlayerType.HUMAN, "Human " + i, inputReader));
         }
 
         for (int i = 1; i <= numBotPlayers; i++)
         {
-            this.addPlayer(playerFactory.createPlayer(Player.PlayerType.BOT, inputReader, "Bot " + i));
+            this.addPlayer(playerFactory.createPlayer(Player.PlayerType.BOT, "Bot " + i, inputReader));
         }
     }
 
