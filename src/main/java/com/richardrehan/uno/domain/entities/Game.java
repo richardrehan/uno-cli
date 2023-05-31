@@ -90,44 +90,53 @@ public class Game
         }
     }
 
-    public GameEvent getGameEvent() {
+    public GameEvent getGameEvent()
+    {
         return gameEvent;
     }
 
-    public Card getCurrentTopCard() {
+    public Card getCurrentTopCard()
+    {
         return getCardManager().peekTopCardStash();
     }
 
-    public void onTurnChange() {
+    public void onTurnChange()
+    {
         getGameEvent().onTurnChange(getCurrentPlayer(), getCurrentTopCard());
     }
 
-    public void onCardPlayed(Card card) {
+    public void onCardPlayed(Card card)
+    {
         getGameEvent().onCardPlayed(getCurrentPlayer(), card);
     }
 
-    public void drawCard(Player player) {
+    public void drawCard(Player player)
+    {
         player.drawCards(getCardManager(), 1);
         getGameEvent().onCardDrawn(player);
     }
 
-    public void drawCards(Player player, int amount) {
+    public void drawCards(Player player, int amount)
+    {
         player.drawCards(getCardManager(), amount);
         getGameEvent().onMultipleCardsDrawn(player, amount);
     }
 
-    public void reverseOrder() {
+    public void reverseOrder()
+    {
         getPlayerManager().reverseOrder();
         getGameEvent().onReversingOrder();
     }
 
-    public void skipPlayer() {
+    public void skipPlayer()
+    {
         Player nextPlayer = getPlayerManager().getNextPlayer();
         getPlayerManager().nextPlayer();
         getGameEvent().onSkippingPlayer(nextPlayer);
     }
 
-    public Card playCard(Player player) {
+    public Card playCard(Player player)
+    {
         Card playedCard = player.playCard(getCardManager().peekTopCardStash());
         return playedCard;
     }

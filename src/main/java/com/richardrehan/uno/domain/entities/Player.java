@@ -52,7 +52,8 @@ public abstract class Player
 
     protected abstract CardProperties.Color chooseCardColor();
 
-    public void drawCards(CardManager cardManager, int number) {
+    public void drawCards(CardManager cardManager, int number)
+    {
         List<Card> drawnCards = cardManager.drawCards(number);
         getHand().addCards(drawnCards);
     }
@@ -84,7 +85,8 @@ public abstract class Player
     }
 
 
-    public enum PlayerType {
+    public enum PlayerType
+    {
         HUMAN,
         BOT;
     }

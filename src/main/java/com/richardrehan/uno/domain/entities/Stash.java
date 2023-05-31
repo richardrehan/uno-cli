@@ -17,7 +17,7 @@ public class Stash
     {
         Card topCard = this.getTopCard();
 
-        Stack<Card> supplyCards = this.cards;
+        Stack<Card> supplyCards = (Stack<Card>) this.cards.clone();
         this.clear();
         this.addCard(topCard);
 

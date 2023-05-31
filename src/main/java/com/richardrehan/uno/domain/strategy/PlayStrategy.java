@@ -7,5 +7,6 @@ import java.util.List;
 public interface PlayStrategy
 {
     Card chooseCard(List<Card> playableCards);
+
     int thinkingTime();
 }

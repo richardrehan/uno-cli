@@ -21,7 +21,8 @@ public class PlayerManager
         this.initializePlayers(numHumanPlayers, numBotPlayers, inputReader);
     }
 
-    private void initializePlayers(int numHumanPlayers, int numBotPlayers, InputReader inputReader) {
+    private void initializePlayers(int numHumanPlayers, int numBotPlayers, InputReader inputReader)
+    {
         this.players = new ArrayList<>();
 
         for (int i = 1; i <= numHumanPlayers; i++)

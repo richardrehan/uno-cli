@@ -5,7 +5,8 @@ public final class CardProperties
     private final Color color;
     private final Value value;
 
-    public CardProperties(Color color, Value value) {
+    public CardProperties(Color color, Value value)
+    {
         this.color = color;
         this.value = value;
     }
@@ -25,14 +26,16 @@ public final class CardProperties
     {
         CardProperties cardProperties;
 
-        try {
+        try
+        {
             cardProperties = (CardProperties) obj;
         } catch (Exception e)
         {
             return false;
         }
 
-        if(cardProperties.getColor() == this.getColor() && cardProperties.getValue() == this.getValue()) {
+        if (cardProperties.getColor() == this.getColor() && cardProperties.getValue() == this.getValue())
+        {
             return true;
         }
 

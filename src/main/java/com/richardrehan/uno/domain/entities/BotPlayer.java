@@ -78,11 +78,13 @@ public class BotPlayer extends Player
         }
     }
 
-    public PlayStrategy getPlayStrategy() {
+    public PlayStrategy getPlayStrategy()
+    {
         return this.playStrategy;
     }
 
-    public void setPlayStrategy(PlayStrategy playStrategy) {
+    public void setPlayStrategy(PlayStrategy playStrategy)
+    {
         this.playStrategy = playStrategy;
     }
 

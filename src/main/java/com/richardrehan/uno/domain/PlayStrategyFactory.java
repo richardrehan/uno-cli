@@ -10,13 +10,15 @@ public class PlayStrategyFactory
 {
     private static final Random RANDOM = new Random();
 
-    public PlayStrategy createRandomPlayStrategy() {
+    public PlayStrategy createRandomPlayStrategy()
+    {
         PlayStrategy playStrategy;
 
         int randomNumber = RANDOM.nextInt(2);
         System.out.println(randomNumber);
 
-        switch (randomNumber) {
+        switch (randomNumber)
+        {
             case 0:
                 playStrategy = new FastThinkerStrategy();
                 break;
