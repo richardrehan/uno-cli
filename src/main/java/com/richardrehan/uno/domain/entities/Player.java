@@ -77,4 +77,10 @@ public abstract class Player
         }
         return nonPlayableCards;
     }
+
+
+    public enum PlayerType {
+        HUMAN,
+        BOT;
+    }
 }

@@ -1,7 +1,5 @@
 package com.richardrehan.uno.domain;
 
-import com.richardrehan.uno.domain.entities.BotPlayer;
-import com.richardrehan.uno.domain.entities.HumanPlayer;
 import com.richardrehan.uno.domain.entities.Player;
 
 import java.util.ArrayList;
@@ -12,11 +10,13 @@ public class PlayerManager
     private List<Player> players;
     private int currentPlayerIndex;
     private boolean reverse;
+    private PlayerFactory playerFactory;
 
     public PlayerManager(int numHumanPlayers, int numBotPlayers, InputReader inputReader)
     {
         this.currentPlayerIndex = 0;
         this.reverse = false;
+        this.playerFactory = new PlayerFactory();
 
         this.initializePlayers(numHumanPlayers, numBotPlayers, inputReader);
     }
@@ -26,12 +26,12 @@ public class PlayerManager
 
         for (int i = 1; i <= numHumanPlayers; i++)
         {
-            this.addPlayer(new HumanPlayer("Human " + i, inputReader));
+            this.addPlayer(playerFactory.createPlayer(Player.PlayerType.HUMAN, inputReader, "Human " + i));
         }
 
         for (int i = 1; i <= numBotPlayers; i++)
         {
-            this.addPlayer(new BotPlayer("Bot " + i, inputReader));
+            this.addPlayer(playerFactory.createPlayer(Player.PlayerType.BOT, inputReader, "Bot " + i));
         }
     }
 
