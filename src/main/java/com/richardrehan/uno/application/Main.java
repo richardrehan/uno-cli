@@ -9,8 +9,8 @@ public class Main
 {
     public static void main(String[] args) throws IOException
     {
-        InputReader inputReader = new ConsoleInputReader();
-        OutputWriter outputWriter = new ConsoleOutputWriter();
+        ConsoleInputReader inputReader = new ConsoleInputReader();
+        ConsoleOutputWriter outputWriter = new ConsoleOutputWriter();
 
         GameEvent gameEvent = new ConsoleGameEvent();
 

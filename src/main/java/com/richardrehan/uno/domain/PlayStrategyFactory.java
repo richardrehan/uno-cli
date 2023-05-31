@@ -15,7 +15,6 @@ public class PlayStrategyFactory
         PlayStrategy playStrategy;
 
         int randomNumber = RANDOM.nextInt(2);
-        System.out.println(randomNumber);
 
         switch (randomNumber)
         {

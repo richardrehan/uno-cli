@@ -1,5 +1,7 @@
 package com.richardrehan.uno.application;
 
+import com.richardrehan.uno.adapters.ConsoleInputReader;
+import com.richardrehan.uno.adapters.ConsoleOutputWriter;
 import com.richardrehan.uno.domain.*;
 import com.richardrehan.uno.domain.entities.Game;
 import com.richardrehan.uno.domain.gamemode.GameMode;
@@ -10,11 +12,11 @@ public class GameController
 
     private final Settings settings;
     private Game game;
-    private final InputReader inputReader;
-    private final OutputWriter outputWriter;
+    private final ConsoleInputReader inputReader;
+    private final ConsoleOutputWriter outputWriter;
     private GameEvent gameEvent;
 
-    public GameController(InputReader inputReader, OutputWriter outputWriter, Settings settings, GameEvent gameEvent)
+    public GameController(ConsoleInputReader inputReader, ConsoleOutputWriter outputWriter, Settings settings, GameEvent gameEvent)
     {
         this.inputReader = inputReader;
         this.outputWriter = outputWriter;
