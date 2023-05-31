@@ -9,5 +9,12 @@
         <module name="uno-cli" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="adapters" target="16" />
+      <module name="app" target="17" />
+      <module name="application" target="16" />
+      <module name="domain" target="16" />
+      <module name="plugins" target="16" />
+    </bytecodeTargetLevel>
   </component>
 </project>
