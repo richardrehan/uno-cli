@@ -3,14 +3,14 @@ package com.richardrehan.uno.domain.entities.card;
 public class NumberCard extends Card
 {
 
-    public NumberCard(Color color, int value)
+    public NumberCard(CardProperties.Color color, int value)
     {
-        super(color, Value.fromInt(value));
+        super(new CardProperties(color, CardProperties.Value.fromInt(value)));
     }
 
-    public NumberCard(Color color, Value value)
+    public NumberCard(CardProperties.Color color, CardProperties.Value value)
     {
-        super(color, value);
+        super(new CardProperties(color, value));
     }
 
 }

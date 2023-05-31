@@ -2,6 +2,7 @@ package com.richardrehan.uno.domain.entities;
 
 import com.richardrehan.uno.domain.*;
 import com.richardrehan.uno.domain.entities.card.Card;
+import com.richardrehan.uno.domain.entities.card.CardProperties;
 import com.richardrehan.uno.domain.gamemode.GameMode;
 
 import java.util.List;
@@ -82,7 +83,7 @@ public class Game
             Card startingCard = cardManager.drawCard();
             cardManager.addCardToStash(startingCard);
 
-            if (startingCard.getColor() != Card.Color.WILD)
+            if (startingCard.getColor() != CardProperties.Color.WILD)
             {
                 invalidCard = false;
             }

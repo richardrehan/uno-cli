@@ -4,14 +4,15 @@ import com.richardrehan.uno.domain.entities.card.Card;
 import com.richardrehan.uno.domain.entities.Game;
 import com.richardrehan.uno.domain.InputReader;
 import com.richardrehan.uno.domain.OutputWriter;
+import com.richardrehan.uno.domain.entities.card.CardProperties;
 
 
 public class DrawTwoCard extends Card
 {
 
-    public DrawTwoCard(Color color)
+    public DrawTwoCard(CardProperties.Color color)
     {
-        super(color, Value.DRAW_TWO);
+        super(new CardProperties(color, CardProperties.Value.DRAW_TWO));
     }
 
     @Override

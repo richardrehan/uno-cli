@@ -4,6 +4,7 @@ import com.richardrehan.uno.domain.entities.card.Card;
 import com.richardrehan.uno.domain.entities.Game;
 import com.richardrehan.uno.domain.InputReader;
 import com.richardrehan.uno.domain.OutputWriter;
+import com.richardrehan.uno.domain.entities.card.CardProperties;
 
 
 public class WildDrawFourCard extends Card
@@ -11,7 +12,7 @@ public class WildDrawFourCard extends Card
 
     public WildDrawFourCard()
     {
-        super(Color.WILD, Value.WILD_DRAW_FOUR);
+        super(new CardProperties(CardProperties.Color.WILD, CardProperties.Value.WILD_DRAW_FOUR));
     }
 
     @Override

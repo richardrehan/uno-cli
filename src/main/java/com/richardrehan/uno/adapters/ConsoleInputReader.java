@@ -2,6 +2,7 @@ package com.richardrehan.uno.adapters;
 
 import com.richardrehan.uno.domain.entities.card.Card;
 import com.richardrehan.uno.domain.InputReader;
+import com.richardrehan.uno.domain.entities.card.CardProperties;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -72,7 +73,7 @@ public class ConsoleInputReader implements InputReader
     }
 
     @Override
-    public Card.Color chooseColor()
+    public CardProperties.Color chooseColor()
     {
         int chosenIndex = 0;
 
@@ -80,17 +81,17 @@ public class ConsoleInputReader implements InputReader
         while (choosing)
         {
             System.out.println("Choose a color for the Wild card (enter the corresponding number):");
-            for (int i = 0; i < Card.Color.values().length - 1; i++)
+            for (int i = 0; i < CardProperties.Color.values().length - 1; i++)
             {
-                System.out.println(i + ": " + Card.Color.values()[i]);
+                System.out.println(i + ": " + CardProperties.Color.values()[i]);
             }
             chosenIndex = scanner.nextInt();
 
-            if (chosenIndex >= 0 && chosenIndex < Card.Color.values().length - 1)
+            if (chosenIndex >= 0 && chosenIndex < CardProperties.Color.values().length - 1)
             {
                 choosing = false;
             }
         }
-        return Card.Color.values()[chosenIndex];
+        return CardProperties.Color.values()[chosenIndex];
     }
 }

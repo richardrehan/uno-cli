@@ -1,6 +1,7 @@
 package com.richardrehan.uno.domain;
 
 import com.richardrehan.uno.domain.entities.card.Card;
+import com.richardrehan.uno.domain.entities.card.CardProperties;
 
 import java.util.List;
 
@@ -12,5 +13,5 @@ public interface InputReader
 
     Card chooseCard(List<Card> cards);
 
-    Card.Color chooseColor();
+    CardProperties.Color chooseColor();
 }

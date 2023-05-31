@@ -2,6 +2,7 @@ package com.richardrehan.uno.domain.entities;
 
 import com.richardrehan.uno.domain.InputReader;
 import com.richardrehan.uno.domain.entities.card.Card;
+import com.richardrehan.uno.domain.entities.card.CardProperties;
 import com.richardrehan.uno.domain.strategy.FastThinkerStrategy;
 import com.richardrehan.uno.domain.strategy.NormalStrategy;
 import com.richardrehan.uno.domain.strategy.PlayStrategy;
@@ -50,9 +51,9 @@ public class BotPlayer extends Player
         Card chosenCard = playStrategy.chooseCard(playableCards);
 
         // Choose a color when a wild card is played
-        if (chosenCard.getColor().equals(Card.Color.WILD))
+        if (chosenCard.getColor().equals(CardProperties.Color.WILD))
         {
-            Card.Color color = chooseCardColor();
+            CardProperties.Color color = chooseCardColor();
             chosenCard.setColor(color);
         }
 
@@ -60,9 +61,9 @@ public class BotPlayer extends Player
     }
 
     @Override
-    protected Card.Color chooseCardColor()
+    protected CardProperties.Color chooseCardColor()
     {
-        return Card.Color.values()[new Random().nextInt(Card.Color.values().length - 1)];
+        return CardProperties.Color.values()[new Random().nextInt(CardProperties.Color.values().length - 1)];
     }
 
     private void simulateThinkingTime()

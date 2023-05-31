@@ -6,28 +6,27 @@ import com.richardrehan.uno.domain.OutputWriter;
 
 public abstract class Card
 {
-    private Color color;
-    private final Value value;
+    private CardProperties cardProperties;
 
-    public Card(Color color, Value value)
+    public Card(CardProperties cardProperties)
     {
-        this.color = color;
-        this.value = value;
+        this.cardProperties = cardProperties;
     }
 
-    public Color getColor()
+    public CardProperties.Color getColor()
     {
-        return color;
+        return this.cardProperties.getColor();
     }
 
-    public void setColor(Color color)
+    public void setColor(CardProperties.Color color)
     {
-        this.color = color;
+        CardProperties cardPropertiesNew = new CardProperties(color, this.cardProperties.getValue());
+        this.cardProperties = cardPropertiesNew;
     }
 
-    public Value getValue()
+    public CardProperties.Value getValue()
     {
-        return value;
+        return this.cardProperties.getValue();
     }
 
     public void executeAction(Game game, InputReader inputReader, OutputWriter outputWriter)
@@ -37,7 +36,7 @@ public abstract class Card
 
     public boolean canBePlayedOn(Card otherCard)
     {
-        if (this.getColor() == otherCard.getColor() || this.getValue() == otherCard.getValue() || this.getColor() == Card.Color.WILD || otherCard == null)
+        if (this.getColor() == otherCard.getColor() || this.getValue() == otherCard.getValue() || this.getColor() == CardProperties.Color.WILD || otherCard == null)
         {
             return true;
         } else
@@ -49,43 +48,6 @@ public abstract class Card
     @Override
     public String toString()
     {
-        return color + " " + value;
-    }
-
-    public enum Color
-    {
-        RED,
-        YELLOW,
-        GREEN,
-        BLUE,
-        WILD
-    }
-
-    public enum Value
-    {
-        ZERO,
-        ONE,
-        TWO,
-        THREE,
-        FOUR,
-        FIVE,
-        SIX,
-        SEVEN,
-        EIGHT,
-        NINE,
-        SKIP,
-        REVERSE,
-        DRAW_TWO,
-        WILD,
-        WILD_DRAW_FOUR;
-
-        public static Value fromInt(int value)
-        {
-            if (value >= 0 && value <= 9)
-            {
-                return Value.values()[value];
-            }
-            throw new IllegalArgumentException("Invalid value for card: " + value);
-        }
+        return getColor() + " " + getValue();
     }
 }

@@ -1,6 +1,7 @@
 package com.richardrehan.uno.domain.entities;
 
 import com.richardrehan.uno.domain.entities.card.Card;
+import com.richardrehan.uno.domain.entities.card.CardProperties;
 import com.richardrehan.uno.domain.entities.card.NumberCard;
 import com.richardrehan.uno.domain.entities.card.action.*;
 
@@ -51,9 +52,9 @@ public class Deck
     private void addStandardDeck()
     {
         // Add all the possible combinations of colors and values to the deck
-        for (Card.Color color : Card.Color.values())
+        for (CardProperties.Color color : CardProperties.Color.values())
         {
-            if (color == Card.Color.WILD)
+            if (color == CardProperties.Color.WILD)
             {
                 // Skip black cards, since they don't have a specific color
                 continue;

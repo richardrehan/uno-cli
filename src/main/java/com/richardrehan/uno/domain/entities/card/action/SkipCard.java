@@ -4,13 +4,14 @@ import com.richardrehan.uno.domain.entities.card.Card;
 import com.richardrehan.uno.domain.entities.Game;
 import com.richardrehan.uno.domain.InputReader;
 import com.richardrehan.uno.domain.OutputWriter;
+import com.richardrehan.uno.domain.entities.card.CardProperties;
 
 public class SkipCard extends Card
 {
 
-    public SkipCard(Color color)
+    public SkipCard(CardProperties.Color color)
     {
-        super(color, Value.SKIP);
+        super(new CardProperties(color, CardProperties.Value.SKIP));
     }
 
     @Override
