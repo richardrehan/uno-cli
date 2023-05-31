@@ -23,18 +23,32 @@ public class HumanPlayer extends Player
             return null;
         } else
         {
-            Card chosenCard = inputReader.chooseCard(playableCards);
-
-            // Choose a color when a wild card is played
-            if (chosenCard.getColor().equals(Card.Color.WILD))
-            {
-                Card.Color color = inputReader.chooseColor();
-
-                chosenCard.setColor(color);
-            }
+            Card chosenCard = chooseCard(playableCards);
 
             this.removeCardFromHand(chosenCard);
+
             return chosenCard;
         }
+    }
+
+    @Override
+    protected Card chooseCard(List<Card> playableCards)
+    {
+        Card chosenCard = inputReader.chooseCard(playableCards);
+
+        // Choose a color when a wild card is played
+        if (chosenCard.getColor().equals(Card.Color.WILD))
+        {
+            Card.Color color = chooseCardColor();
+            chosenCard.setColor(color);
+        }
+
+        return chosenCard;
+    }
+
+    @Override
+    protected Card.Color chooseCardColor()
+    {
+        return inputReader.chooseColor();
     }
 }

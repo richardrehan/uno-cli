@@ -47,6 +47,10 @@ public abstract class Player
 
     public abstract Card playCard(Card currentCard);
 
+    protected abstract Card chooseCard(List<Card> playableCards);
+
+    protected abstract Card.Color chooseCardColor();
+
     public void drawCards(CardManager cardManager, int number) {
         List<Card> drawnCards = cardManager.drawCards(number);
         getHand().addCards(drawnCards);

@@ -25,21 +25,35 @@ public class BotPlayer extends Player
             return null;
         } else
         {
-            simulateThinkingTime();
-
-            Card chosenCard = playableCards.get(0);
-
-            // Choose a color when a wild card is played
-            if (chosenCard.getColor().equals(Card.Color.WILD))
-            {
-                Card.Color color = Card.Color.values()[new Random().nextInt(Card.Color.values().length - 1)];
-
-                chosenCard.setColor(color);
-            }
+            Card chosenCard = chooseCard(playableCards);
 
             this.removeCardFromHand(chosenCard);
+
             return chosenCard;
         }
+    }
+
+    @Override
+    protected Card chooseCard(List<Card> playableCards)
+    {
+        simulateThinkingTime();
+
+        Card chosenCard = playableCards.get(0);
+
+        // Choose a color when a wild card is played
+        if (chosenCard.getColor().equals(Card.Color.WILD))
+        {
+            Card.Color color = chooseCardColor();
+            chosenCard.setColor(color);
+        }
+
+        return chosenCard;
+    }
+
+    @Override
+    protected Card.Color chooseCardColor()
+    {
+        return Card.Color.values()[new Random().nextInt(Card.Color.values().length - 1)];
     }
 
     private void simulateThinkingTime()
